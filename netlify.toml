@@ -1,0 +1,6 @@
+# LH Cars — decode base64 photo sidecars into real JPEGs at build time
+[build]
+  command = "bash scripts/decode-images.sh"
+  publish = "."
+
+# Keep HTML/CSS/JS as-is; decoded JPGs land beside the .b64 sources

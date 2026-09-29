@@ -1,0 +1,22 @@
+name: Decode MG JPEG binaries
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/img/cars/mg-midget-1964/*.jpg.b64"
+      - "scripts/decode-images.sh"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  decode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode base64 sidecars to JPEG
+        run: bash scripts/decode-images.sh
+      - name: Commit decoded JPEGs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: decode MG Midget JPEG binaries from base64 sidecars"
+          file_pattern: "assets/img/cars/mg-midget-1964/*.jpg"

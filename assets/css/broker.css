@@ -1,0 +1,15 @@
+/* broker / seller platform */
+.bk-hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.bk-hero-stats div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.bk-hero-stats b{display:block;font:800 italic 26px/1 var(--fd);color:var(--amber)}
+.bk-hero-stats span{color:var(--mut);font-size:13.5px}
+.rules{display:grid;gap:10px}
+.rule{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.rule.no{border-color:#5a2430;background:#24151a}
+.rule.yes{border-color:#1e3d2a;background:#142018}
+.rule i{font-style:normal;font-weight:800;min-width:28px}
+.flowline{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--mut);font-weight:700}
+.flowline b{background:var(--panel);border:1px solid var(--line);color:#fff;padding:8px 12px;border-radius:999px;font-size:13px}
+.bk-card .bk-comm{font-size:13.5px;color:var(--mut)}
+.bk-card .bk-comm b{color:var(--amber)}
+@media (max-width:760px){.bk-hero-stats{grid-template-columns:1fr}}

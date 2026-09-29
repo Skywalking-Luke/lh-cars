@@ -145,3 +145,11 @@ html[lang=ta] .nav a,html[lang=ta] .tag,html[lang=ta] .kick{text-transform:none;
 html[lang=ta] .nav a{font-size:13px;padding:8px 9px}
 html[lang=ta] .hero h1{font-size:clamp(32px,4.6vw,54px)}
 html[lang=ta] :is(.tag,.ribbon,.btn){font-weight:700}
+/* incoming-stock listings */
+.tag.amber{background:var(--amber);color:#1a1300}
+.status.inc:before{background:var(--amber);box-shadow:0 0 0 4px rgba(251,178,75,.18)}
+.stage.fit img{object-fit:contain;background:#0e1015}
+.thumbs .cap{position:absolute;left:6px;bottom:6px;right:6px;font-size:11.5px;line-height:1.3;color:#eef0f4;background:rgba(0,0,0,.62);padding:3px 7px;border-radius:6px;text-align:left;pointer-events:none}
+.flist{list-style:none;padding:0;margin:0 0 6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.flist li{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px 9px 30px;font-size:14px}
+.flist li:before{content:"";position:absolute;left:12px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--amber)}

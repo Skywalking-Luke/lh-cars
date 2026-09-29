@@ -2,9 +2,9 @@
 var WA="60128744878";
 function t(k,fb){return (window.LH_T&&window.LH_T(k))||fb}
 function waURL(txt){return "https://wa.me/"+WA+"?text="+encodeURIComponent(txt)}
-// WhatsApp links: data-wa="key" [data-car="name"]; the English message is already in the href
-window.LH_updateWA=function(){document.querySelectorAll("[data-wa]").forEach(function(a){var m=t(a.getAttribute("data-wa"),a.getAttribute("data-wa-en")||"");if(!m)return;a.href=waURL(m.replace("{car}",a.getAttribute("data-car")||""))})};
-document.querySelectorAll("[data-wa]").forEach(function(a){var h=a.getAttribute("href")||"";var i=h.indexOf("?text=");if(i>0){var en=decodeURIComponent(h.slice(i+6));var c=a.getAttribute("data-car");a.setAttribute("data-wa-en",c?en.replace(c,"{car}"):en)}});
+// WhatsApp links: data-wa="key" [data-car="name"] [data-price="RM…"]; the English message is already in the href
+window.LH_updateWA=function(){document.querySelectorAll("[data-wa]").forEach(function(a){var m=t(a.getAttribute("data-wa"),a.getAttribute("data-wa-en")||"");if(!m)return;a.href=waURL(m.replace("{car}",a.getAttribute("data-car")||"").replace("{price}",a.getAttribute("data-price")||""))})};
+document.querySelectorAll("[data-wa]").forEach(function(a){var h=a.getAttribute("href")||"";var i=h.indexOf("?text=");if(i>0){var en=decodeURIComponent(h.slice(i+6));var c=a.getAttribute("data-car"),pr=a.getAttribute("data-price");if(c)en=en.replace(c,"{car}");if(pr)en=en.replace(pr,"{price}");a.setAttribute("data-wa-en",en)}});
 // mobile menu
 var b=document.querySelector(".burger"),n=document.querySelector(".nav");if(b&&n)b.addEventListener("click",function(){n.classList.toggle("open");b.setAttribute("aria-expanded",n.classList.contains("open"))});
 // toast

@@ -1,22 +1,29 @@
-name: Decode MG JPEG binaries
+name: Convert MG photos to real JPEGs
 on:
   push:
     branches: [main]
     paths:
-      - "assets/img/cars/mg-midget-1964/*.jpg.b64"
-      - "scripts/decode-images.sh"
+      - "assets/img/**.jpg"
+      - "scripts/unwrap-images.py"
+      - ".github/workflows/decode-images.yml"
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
-  decode:
+  unwrap:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Decode base64 sidecars to JPEG
-        run: bash scripts/decode-images.sh
-      - name: Commit decoded JPEGs
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: decode MG Midget JPEG binaries from base64 sidecars"
-          file_pattern: "assets/img/cars/mg-midget-1964/*.jpg"
+      - name: Unwrap JPEG-in-SVG files
+        run: python3 scripts/unwrap-images.py
+      - name: Commit real JPEGs
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898297+github-actions[bot]@users.noreply.github.com"
+            git add -A assets/img _headers
+            git commit -m "chore: convert MG photos to real JPEG files"
+            git push
+          else
+            echo "Nothing to convert"
+          fi

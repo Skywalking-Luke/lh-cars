@@ -69,7 +69,7 @@ Untuk setiap kereta:
 2. Kekalkan teks harga: **`Hubungi untuk harga`** — jangan isi RM.  
 3. Kemaskini pautan WhatsApp `?text=...` supaya mesej praisi sebut model yang betul.  
 4. Pastikan nombor kekal: `https://wa.me/60128744878`.  
-5. Tanda `Sample` boleh dibuang bila unit sebenar — atau ganti dengan status ringkas (cth. "Available — enquire").  
+5. Tanda `Sample` boleh dibuang bila unit sebenar — atau ganti dengan status ringkas (cth. “Available — enquire”).  
 6. Upload semula fail yang diubah (atau re-drop folder ke Netlify).
 
 **Jangan:** paparkan % komisen broker di laman awam.
@@ -81,7 +81,7 @@ Untuk setiap kereta:
 - [ ] Mobile menu ☰ berfungsi  
 - [ ] Semua butang WhatsApp buka `wa.me/60128744878`  
 - [ ] Floating FAB hijau kelihatan  
-- [ ] Sticky bar mobile: "WhatsApp LH Cars · Hubungi untuk harga"  
+- [ ] Sticky bar mobile: “WhatsApp LH Cars · Hubungi untuk harga”  
 - [ ] Share link nampak title/description (Open Graph)
 
 **Sokongan:** WhatsApp +60128744878

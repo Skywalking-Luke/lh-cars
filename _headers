@@ -1,3 +1,2 @@
-# Serve MG "jpg" paths as SVG (JPEG embedded) so MCP text uploads still display photos
-/assets/img/cars/mg-midget-1964/*.jpg
-  Content-Type: image/svg+xml
+/assets/*
+  Cache-Control: public, max-age=86400

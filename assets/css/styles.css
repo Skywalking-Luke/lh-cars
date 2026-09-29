@@ -153,3 +153,4 @@ html[lang=ta] :is(.tag,.ribbon,.btn){font-weight:700}
 .flist{list-style:none;padding:0;margin:0 0 6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
 .flist li{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px 9px 30px;font-size:14px}
 .flist li:before{content:"";position:absolute;left:12px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
+.card a.ph img{position:absolute;inset:0}

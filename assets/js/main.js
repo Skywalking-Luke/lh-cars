@@ -36,7 +36,7 @@ document.querySelectorAll("nav.nav").forEach(function(nav){
   if(nav.querySelector('a[href*="brokers.html"]'))return;
   var a=document.createElement("a");
   a.href=href;
-  a.textContent="Brokers";
+  a.textContent="Sell";
   if(/brokers|broker-kit/.test(here))a.classList.add("on");
   var c=[].find.call(nav.querySelectorAll("a"),function(x){return /contact\.html/.test(x.getAttribute("href")||"")});
   if(c)nav.insertBefore(a,c);else nav.appendChild(a);
@@ -48,7 +48,7 @@ if(/\/(index\.html)?$/.test(here)||here.endsWith("/lh-cars/")||here.endsWith("/l
     s.className="sec";
     s.style.paddingTop="0";
     s.setAttribute("data-broker-cta","1");
-    s.innerHTML='<div class="wrap"><div class="cta" style="background:linear-gradient(120deg,#1b1e27,#2a0f13 80%);border-color:#3d4252"><div><h2>Peluang broker kereta</h2><p>Post listing, cari customer, dapat komisen 1%–3%. Tak perlu modal atau stok. Harga lock — saya handle closing.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="brokers.html">Join as broker</a><a class="btn btn-ghost" href="broker-kit.html">Listing kit</a></div></div></div>';
+    s.innerHTML='<div class="wrap"><div class="cta" style="background:linear-gradient(120deg,#1b1e27,#2a0f13 80%);border-color:#3d4252"><div><h2>Post to Marketplace, Mudah, TikTok</h2><p>You are the broker. Copy the listing, publish from your account, close on WhatsApp.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="broker-kit.html">Open listing kit</a><a class="btn btn-ghost" href="brokers.html">How to post</a></div></div></div>';
     var last=host.querySelector(".cta")&&host.querySelector(".cta").closest("section");
     if(last)host.insertBefore(s,last);else host.appendChild(s);
   }

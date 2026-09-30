@@ -12,4 +12,10 @@
 .flowline b{background:var(--panel);border:1px solid var(--line);color:#fff;padding:8px 12px;border-radius:999px;font-size:13px}
 .bk-card .bk-comm{font-size:13.5px;color:var(--mut)}
 .bk-card .bk-comm b{color:var(--amber)}
+.bk-open{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+.bk-how{margin:0 0 18px;padding-left:18px;color:var(--mut);line-height:1.55}
+.bk-how b{color:#fff}
+.bk-plats{display:grid;gap:8px;margin:12px 0 8px}
+.bk-plat{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--chip,#1b1e27);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.bk-plat b{min-width:108px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--amber)}
 @media (max-width:760px){.bk-hero-stats{grid-template-columns:1fr}}

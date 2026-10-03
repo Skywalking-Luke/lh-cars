@@ -37,7 +37,7 @@ types.forEach(function(t){
   b.addEventListener("click",function(){go({type:t[0]})});
   typeHost.appendChild(b);
 });
-var prices=[["Less than RM20,000",0,20000],["RM20,000 - 50,000",20000,50000],["RM50,000 - 100,000",50000,100000],["More than RM100,000",100000,1e15]];
+var prices=[["Under RM300,000",0,300000],["RM300,000 - 500,000",300000,500000],["RM500,000 - 1 million",500000,1000000],["Over RM1 million",1000000,1e15]];
 var priceHost=box.querySelector(".prices");
 prices.forEach(function(p){
   var b=document.createElement("button");b.type="button";b.className="breathe";b.textContent=p[0];

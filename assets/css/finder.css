@@ -25,3 +25,7 @@ html[data-theme=light] .finder .q{background:#fff}
 .finder .brands .marklogo{display:grid;place-items:center;height:42px}
 .finder .brands .marklogo svg{width:40px;height:28px}
 .finder .types button,.finder .brands button{display:flex;flex-direction:column;align-items:center;gap:4px}
+
+.finder .types img.sil{width:46px;height:28px;object-fit:contain;display:block;margin:0 auto 4px;filter:invert(1)}
+.finder .brands .marklogo img{width:36px;height:28px;object-fit:contain;filter:invert(1)}
+html[data-theme=light] .finder .types img.sil,html[data-theme=light] .finder .brands .marklogo img{filter:none}

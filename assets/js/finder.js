@@ -32,7 +32,8 @@ var types=[
 var typeHost=box.querySelector(".types");
 types.forEach(function(t){
   var b=document.createElement("button");b.type="button";b.className="breathe";
-  b.innerHTML='<svg viewBox="0 0 64 28" class="sil"><path fill="currentColor" d="'+t[1]+'"/></svg><span>'+t[0]+'</span>';
+  var file=t[0].toLowerCase();
+  b.innerHTML='<img class="sil" alt="" src="assets/img/bodies/'+file+'.svg"><span>'+t[0]+'</span>';
   b.addEventListener("click",function(){go({type:t[0]})});
   typeHost.appendChild(b);
 });
@@ -65,7 +66,8 @@ var makes=["Porsche","Ferrari","Lamborghini","Mercedes-Benz","BMW","Audi","Nissa
 var brandHost=box.querySelector(".brands");
 makes.forEach(function(m){
   var b=document.createElement("button");b.type="button";b.className="breathe";
-  b.innerHTML='<span class="marklogo">'+(logos[m]||"")+'</span><span>'+m+'</span>';
+  var file=m.toLowerCase().replace(/[^a-z]/g,"");
+  b.innerHTML='<span class="marklogo"><img alt="" src="assets/img/brands/'+file+'.svg"></span><span>'+m+'</span>';
   b.addEventListener("click",function(){go({make:m})});
   brandHost.appendChild(b);
 });

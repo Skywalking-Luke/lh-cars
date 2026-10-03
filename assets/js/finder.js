@@ -66,7 +66,8 @@ var makes=["Porsche","Ferrari","Lamborghini","Mercedes-Benz","BMW","Audi","Nissa
 var brandHost=box.querySelector(".brands");
 makes.forEach(function(m){
   var b=document.createElement("button");b.type="button";b.className="breathe";
-  var file=m.toLowerCase().replace(/[^a-z]/g,"");
+  var slugs={"Mercedes-Benz":"mercedes","Land Rover":"landrover","Rolls-Royce":"rollsroyce","Aston Martin":"astonmartin","Lexus":"lexus"};
+  var file=slugs[m]||m.toLowerCase().replace(/[^a-z]/g,"");
   b.innerHTML='<span class="marklogo"><img alt="" src="assets/img/brands/'+file+'.svg"></span><span>'+m+'</span>';
   b.addEventListener("click",function(){go({make:m})});
   brandHost.appendChild(b);

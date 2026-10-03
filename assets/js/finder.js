@@ -6,9 +6,10 @@ function iconize(el){
 }
 document.querySelectorAll(".hwa,.swa,.btn-wa").forEach(iconize);
 var here=location.pathname;
-var onCars=/cars\.html$/.test(here);
-var onHome=/\/(index\.html)?$/.test(here)||here.endsWith("/lh-cars")||here.endsWith("/lh-cars/");
+var onCars=/\/cars\.html$/.test(here);
+var onHome=(/\/(index\.html)?$/.test(here)||here.endsWith("/lh-cars")||here.endsWith("/lh-cars/"))&&!/\/cars\//.test(here);
 if(!onCars&&!onHome)return;
+var root=/\/cars\//.test(here)?"../../":"";
 var old=document.querySelector(".bands");if(old)old.remove();
 if(document.querySelector(".finder"))return;
 var box=document.createElement("section");
@@ -33,7 +34,7 @@ var typeHost=box.querySelector(".types");
 types.forEach(function(t){
   var b=document.createElement("button");b.type="button";b.className="finder-ico";
   var file=t[0].toLowerCase();
-  b.innerHTML='<img class="sil" alt="" src="assets/img/bodies/'+file+'.svg"><span>'+t[0]+'</span>';
+  b.innerHTML='<img class="sil" alt="" src="'+root+'assets/img/bodies/'+file+'.svg"><span>'+t[0]+'</span>';
   b.addEventListener("click",function(){go({type:t[0]})});
   typeHost.appendChild(b);
 });
@@ -68,7 +69,7 @@ makes.forEach(function(m){
   var b=document.createElement("button");b.type="button";b.className="finder-ico";
   var slugs={"Mercedes-Benz":"mercedes","Land Rover":"landrover","Rolls-Royce":"rollsroyce","Aston Martin":"astonmartin","Lexus":"lexus"};
   var file=slugs[m]||m.toLowerCase().replace(/[^a-z]/g,"");
-  b.innerHTML='<span class="marklogo"><img alt="" src="assets/img/brands/'+file+'.svg'+'"></span><span>'+m+'</span>';
+  b.innerHTML='<span class="marklogo"><img alt="" src="'+root+'assets/img/brands/'+file+'.svg'+'"></span><span>'+m+'</span>';
   b.addEventListener("click",function(){go({make:m})});
   brandHost.appendChild(b);
 });

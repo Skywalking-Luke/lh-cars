@@ -34,7 +34,7 @@ window.open(waURL(msg.trim()),"_blank","noopener")});
   var base=root+"assets/img/";
   var css=document.createElement("link");css.rel="stylesheet";css.href=root+"assets/css/theme.css";document.head.appendChild(css);
   var fcss=document.createElement("link");fcss.rel="stylesheet";fcss.href=root+"assets/css/finder.css";document.head.appendChild(fcss);
-  var fjs=document.createElement("script");fjs.src=root+"assets/js/finder.js";document.body.appendChild(fjs);
+  var fjs=document.createElement("script");fjs.src=root+"assets/js/finder.js?v=13";document.body.appendChild(fjs);
   document.querySelectorAll("a.logo").forEach(function(a){
     if(a.querySelector("img.mark"))return;
     var img=document.createElement("img");

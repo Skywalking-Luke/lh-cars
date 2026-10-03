@@ -32,3 +32,11 @@ html[data-theme=light] .ribbon{background:#c6a15b;color:#1c1914}
 html[data-theme=light] select,html[data-theme=light] input,html[data-theme=light] textarea{background:#fff;color:#1c1914;border-color:#e6dcc8}
 @media (max-width:980px){.nav{background:rgba(20,22,30,.94)}html[data-theme=light] .nav{background:rgba(255,255,255,.96)}}
 @media (prefers-reduced-motion:reduce){.breathe:hover,.breathe.is-on{animation:none}}
+
+html[data-theme=light] .burger,html[data-theme=light] .btn-ghost{color:#1c1914;background:#fff;border-color:#e6dcc8}
+html[data-theme=light] .burger{display:block}
+@media (max-width:980px){
+  html[data-theme=light] .nav{background:#fff;border-bottom:1px solid #e6dcc8}
+  html[data-theme=light] .nav a{color:#1c1914}
+  html[data-theme=light] .nav a.on,html[data-theme=light] .nav a:hover{color:#1c1914;background:rgba(198,161,91,.18)}
+}

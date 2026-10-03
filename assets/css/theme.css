@@ -1,0 +1,34 @@
+/* layout polish + glass + theme. Existing motion in styles.css stays. */
+html{--gold:#c6a15b;--gold2:#e8d7a8}
+.hdr{background:rgba(20,22,30,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid rgba(255,255,255,.08)}
+.theme-btn{border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;height:36px;padding:0 12px;font:700 12px/1 var(--f);cursor:pointer;letter-spacing:.4px}
+.bands{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0 12px}
+.bands button,.bands a{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--txt);border-radius:999px;padding:8px 12px;font:700 12.5px/1 var(--f);cursor:pointer;backdrop-filter:blur(10px)}
+.bands button.on,.bands a.on{background:var(--red);border-color:transparent;color:#fff}
+.card,.step,.feat,.trust,.hero-card,.enq,.faq details,.filters,.cta{background:rgba(34,37,47,.62);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-color:rgba(255,255,255,.1)}
+.hero{background:radial-gradient(800px 380px at 85% 0,rgba(224,37,47,.28),transparent 60%),linear-gradient(180deg,#171a23,var(--bg))}
+.hero .wrap{align-items:stretch}
+.hero-card{transform:none}
+.card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px)}
+@keyframes lhBreathe{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(198,161,91,0)}50%{transform:scale(1.05);box-shadow:0 0 0 8px rgba(198,161,91,.16)}}
+.breathe:hover,.breathe:focus-visible,.breathe.is-on{animation:lhBreathe 1.5s ease-in-out infinite}
+.btn,.lang button,.feat i,.theme-btn,.bands button,.bands a,.nav a,.logo{transform-origin:center}
+html[data-theme=light]{--bg:#f7f4ee;--bg2:#fff;--panel:#fff;--line:#e6dcc8;--txt:#1c1914;--mut:#6e675c;--red:#9a7428;--red2:#c6a15b;--amber:#9a7428;color-scheme:light}
+html[data-theme=light] body{background:var(--bg);color:var(--txt)}
+html[data-theme=light] .hdr{background:rgba(255,255,255,.72);border-bottom-color:rgba(154,116,40,.18)}
+html[data-theme=light] .theme-btn,html[data-theme=light] .bands button,html[data-theme=light] .bands a{color:#1c1914;background:rgba(255,255,255,.7);border-color:#e6dcc8}
+html[data-theme=light] .bands button.on,html[data-theme=light] .bands a.on,html[data-theme=light] .btn-red,html[data-theme=light] .lang button.on{background:#9a7428;color:#fff}
+html[data-theme=light] .card,html[data-theme=light] .step,html[data-theme=light] .feat,html[data-theme=light] .hero-card,html[data-theme=light] .enq,html[data-theme=light] .faq details,html[data-theme=light] .filters,html[data-theme=light] .cta{background:rgba(255,255,255,.78);border-color:rgba(198,161,91,.35);box-shadow:0 10px 30px rgba(80,60,20,.06)}
+html[data-theme=light] .trust{background:rgba(255,255,255,.7);border-color:#e6dcc8}
+html[data-theme=light] .hero{background:radial-gradient(800px 380px at 85% 0,rgba(198,161,91,.28),transparent 62%),linear-gradient(180deg,#fff,#f7f4ee)}
+html[data-theme=light] .hero h1 em,html[data-theme=light] .logo span em{color:#9a7428}
+html[data-theme=light] .kick:before{background:#c6a15b}
+html[data-theme=light] .nav a{color:#6e675c}
+html[data-theme=light] .nav a:hover,html[data-theme=light] .nav a.on{color:#1c1914;background:rgba(198,161,91,.16)}
+html[data-theme=light] .ft{background:#f3eee4;color:#6e675c}
+html[data-theme=light] .chips span{background:#f7f1e6;color:#3d3426;border-color:#e6dcc8}
+html[data-theme=light] .ribbon{background:#c6a15b;color:#1c1914}
+html[data-theme=light] select,html[data-theme=light] input,html[data-theme=light] textarea{background:#fff;color:#1c1914;border-color:#e6dcc8}
+@media (max-width:980px){.nav{background:rgba(20,22,30,.94)}html[data-theme=light] .nav{background:rgba(255,255,255,.96)}}
+@media (prefers-reduced-motion:reduce){.breathe:hover,.breathe.is-on{animation:none}}

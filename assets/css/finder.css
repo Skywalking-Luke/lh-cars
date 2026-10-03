@@ -20,3 +20,8 @@ html[data-theme=light] .finder .tabs button.on{background:#e08a2a;color:#1a1206}
 html[data-theme=light] .finder .prices button{background:#f3f1f4;color:#222}
 html[data-theme=light] .finder .q{background:#fff}
 @media(max-width:640px){.finder .types,.finder .brands{grid-template-columns:repeat(4,1fr)}.finder .brands b{height:36px;font-size:11px}}
+
+.finder .types svg.sil{width:62px;height:28px;display:block;margin:0 auto 6px}
+.finder .brands .marklogo{display:grid;place-items:center;height:42px}
+.finder .brands .marklogo svg{width:40px;height:28px}
+.finder .types button,.finder .brands button{display:flex;flex-direction:column;align-items:center;gap:4px}

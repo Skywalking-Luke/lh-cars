@@ -29,3 +29,7 @@ html[data-theme=light] .finder .q{background:#fff}
 .finder .types img.sil{width:46px;height:28px;object-fit:contain;display:block;margin:0 auto 4px;filter:invert(1)}
 .finder .brands .marklogo img{width:36px;height:28px;object-fit:contain;filter:invert(1)}
 html[data-theme=light] .finder .types img.sil,html[data-theme=light] .finder .brands .marklogo img{filter:none}
+
+.finder .finder-ico,.finder .finder-ico:hover,.finder .finder-ico:active{transform:none!important;animation:none!important;overflow:visible}
+.finder .types img.sil,.finder .brands .marklogo img{transform:none!important;animation:none!important}
+.card:hover img.sil,.card:hover .marklogo img{filter:invert(1)}

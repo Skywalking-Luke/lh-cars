@@ -31,7 +31,7 @@ var types=[
 ];
 var typeHost=box.querySelector(".types");
 types.forEach(function(t){
-  var b=document.createElement("button");b.type="button";b.className="breathe";
+  var b=document.createElement("button");b.type="button";b.className="finder-ico";
   var file=t[0].toLowerCase();
   b.innerHTML='<img class="sil" alt="" src="assets/img/bodies/'+file+'.svg"><span>'+t[0]+'</span>';
   b.addEventListener("click",function(){go({type:t[0]})});
@@ -62,13 +62,13 @@ var logos={
   "McLaren":'<svg viewBox="0 0 48 48"><path fill="currentColor" d="M8 34l10-20h6L14 34zM22 14h8l10 20h-6L24 18l-4 8h6l2 4H16z"/></svg>',
   "Aston Martin":'<svg viewBox="0 0 48 48"><path fill="currentColor" d="M6 30c8-12 12-16 18-16s10 4 18 16c-8-6-12-8-18-8s-10 2-18 8z"/><path fill="currentColor" d="M22 14h4l2 16h-8z"/></svg>'
 };
-var makes=["Porsche","Ferrari","Lamborghini","Mercedes-Benz","BMW","Audi","Nissan","Honda","Toyota","MG","Land Rover","Lexus","Bentley","Rolls-Royce","McLaren","Aston Martin"];
+var makes=["Porsche","Ferrari","Lamborghini","Mercedes-Benz","BMW","Audi","Nissan","Honda","Toyota","MG","Land Rover","Bentley","Rolls-Royce","McLaren","Aston Martin"];
 var brandHost=box.querySelector(".brands");
 makes.forEach(function(m){
-  var b=document.createElement("button");b.type="button";b.className="breathe";
+  var b=document.createElement("button");b.type="button";b.className="finder-ico";
   var slugs={"Mercedes-Benz":"mercedes","Land Rover":"landrover","Rolls-Royce":"rollsroyce","Aston Martin":"astonmartin","Lexus":"lexus"};
   var file=slugs[m]||m.toLowerCase().replace(/[^a-z]/g,"");
-  b.innerHTML='<span class="marklogo"><img alt="" src="assets/img/brands/'+file+(m==='Lexus'?'.png':'.svg')+'"></span><span>'+m+'</span>';
+  b.innerHTML='<span class="marklogo"><img alt="" src="assets/img/brands/'+file+'.svg'+'"></span><span>'+m+'</span>';
   b.addEventListener("click",function(){go({make:m})});
   brandHost.appendChild(b);
 });

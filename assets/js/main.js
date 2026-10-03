@@ -33,6 +33,8 @@ window.open(waURL(msg.trim()),"_blank","noopener")});
   var root=inCar?"../../":"";
   var base=root+"assets/img/";
   var css=document.createElement("link");css.rel="stylesheet";css.href=root+"assets/css/theme.css";document.head.appendChild(css);
+  var fcss=document.createElement("link");fcss.rel="stylesheet";fcss.href=root+"assets/css/finder.css";document.head.appendChild(fcss);
+  var fjs=document.createElement("script");fjs.src=root+"assets/js/finder.js";document.body.appendChild(fjs);
   document.querySelectorAll("a.logo").forEach(function(a){
     if(a.querySelector("img.mark"))return;
     var img=document.createElement("img");
@@ -69,31 +71,6 @@ window.open(waURL(msg.trim()),"_blank","noopener")});
     el.addEventListener("touchstart",function(){el.classList.add("is-on")},{passive:true});
     el.addEventListener("touchend",function(){setTimeout(function(){el.classList.remove("is-on")},700)});
   });
-  var here=location.pathname;
-  if(/cars\.html$/.test(here)||/\/(index\.html)?$/.test(here)||here.endsWith("/lh-cars")||here.endsWith("/lh-cars/")){
-    var host=document.querySelector("header");
-    if(host&&!document.querySelector(".bands")){
-      var bar=document.createElement("div");
-      bar.className="bands wrap";
-      [["All",""],["Under RM100k",100000],["RM100k\u2013500k",500000],["RM500k\u20131m",1000000],["Over RM1m",1e12]].forEach(function(pair,i){
-        var btn=document.createElement("button");
-        btn.type="button";btn.className="breathe"+(i===0?" on":"");btn.textContent=pair[0];
-        btn.addEventListener("click",function(){
-          bar.querySelectorAll("button").forEach(function(x){x.classList.remove("on")});
-          btn.classList.add("on");btn.classList.add("is-on");setTimeout(function(){btn.classList.remove("is-on")},900);
-          if(!/cars\.html$/.test(location.pathname)){location.href="cars.html#stock";return}
-          var max=pair[1];
-          document.querySelectorAll("[data-list] .card").forEach(function(c){
-            var p=+c.dataset.price||0;
-            var ok=!max||(i===1?p<100000:i===2?p>=100000&&p<500000:i===3?p>=500000&&p<1000000:p>=1000000);
-            c.style.display=ok?"":"none";
-          });
-        });
-        bar.appendChild(btn);
-      });
-      host.insertAdjacentElement("afterend",bar);
-    }
-  }
 })();
 document.querySelectorAll(".yr").forEach(function(y){y.textContent=new Date().getFullYear()});
 if(window.LH_updateWA)window.LH_updateWA();

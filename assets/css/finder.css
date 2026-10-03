@@ -1,0 +1,22 @@
+.wa-ico{width:1.15em;height:1.15em;display:inline-block;vertical-align:-.18em;flex:0 0 auto}
+.hwa,.swa,.btn-wa{gap:8px}
+.swa .wa-ico{width:22px;height:22px}
+.finder{margin:14px auto 8px;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.05);backdrop-filter:blur(16px)}
+.finder .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.finder .tabs button{border:0;border-radius:12px;padding:12px;font:800 14px/1 var(--f);cursor:pointer;background:#2a2e3a;color:#fff}
+.finder .tabs button.on{background:#e08a2a;color:#1a1206}
+.finder .q{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:rgba(0,0,0,.18)}
+.finder .q input{border:0;background:transparent;min-width:0;width:100%;padding:6px 0;outline:none}
+.finder .types,.finder .brands{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.finder .types button,.finder .brands button{border:0;background:transparent;color:var(--txt);font:700 11px/1.2 var(--f);letter-spacing:.4px;text-transform:uppercase;cursor:pointer;padding:6px 2px}
+.finder .types svg{width:54px;height:28px;display:block;margin:0 auto 6px}
+.finder .brands b{display:grid;place-items:center;height:42px;font:800 13px/1 var(--fd);letter-spacing:0}
+.finder .prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.finder .prices button{border:0;background:rgba(255,255,255,.08);border-radius:12px;padding:14px 8px;font:700 13px/1.2 var(--f);color:var(--txt);cursor:pointer}
+.finder button.on{outline:2px solid var(--amber)}
+html[data-theme=light] .finder{background:rgba(255,255,255,.82);border-color:#e6dcc8}
+html[data-theme=light] .finder .tabs button{background:#1c2430;color:#fff}
+html[data-theme=light] .finder .tabs button.on{background:#e08a2a;color:#1a1206}
+html[data-theme=light] .finder .prices button{background:#f3f1f4;color:#222}
+html[data-theme=light] .finder .q{background:#fff}
+@media(max-width:640px){.finder .types,.finder .brands{grid-template-columns:repeat(4,1fr)}.finder .brands b{height:36px;font-size:11px}}

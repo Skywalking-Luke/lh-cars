@@ -28,6 +28,21 @@ var f=document.getElementById("waForm");
 if(f)f.addEventListener("submit",function(e){e.preventDefault();var v=function(id){return (document.getElementById(id).value||"").trim()};
 var msg=t("wa_form","Hi LH Cars, my name is {name}. Phone: {phone}. I'm interested in: {interest}. {msg}").replace("{name}",v("fName")||"-").replace("{phone}",v("fPhone")||"-").replace("{interest}",v("fInterest")||"-").replace("{msg}",v("fMsg"));
 window.open(waURL(msg.trim()),"_blank","noopener")});
+(function(){
+  var inCar=/\/cars\//.test(location.pathname);
+  var base=(inCar?"../../":"")+"assets/img/";
+  document.querySelectorAll("a.logo").forEach(function(a){
+    if(a.querySelector("img.mark"))return;
+    var img=document.createElement("img");
+    img.className="mark";
+    img.alt="LH Cars";
+    img.src=base+"logo.png";
+    var b=a.querySelector("b");
+    if(b)b.replaceWith(img);else a.insertBefore(img,a.firstChild);
+  });
+  var icon=document.querySelector('link[rel="icon"]');
+  if(icon){icon.href=base+"favicon.png";icon.type="image/png"}
+})();
 document.querySelectorAll(".yr").forEach(function(y){y.textContent=new Date().getFullYear()});
 if(window.LH_updateWA)window.LH_updateWA();
 })();

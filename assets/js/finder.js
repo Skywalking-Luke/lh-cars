@@ -95,7 +95,7 @@ function apply(q){
     var text=(c.textContent||"").toLowerCase();
     var ok=true;
     if(q.make&&make.indexOf(q.make.toLowerCase())<0&&text.indexOf(q.make.toLowerCase())<0)ok=false;
-    if(q.type&&text.indexOf(q.type.toLowerCase())<0)ok=false;
+    if(q.type){var body=(c.dataset.body||"").toLowerCase();if(body.indexOf(q.type.toLowerCase())<0&&text.indexOf(q.type.toLowerCase())<0)ok=false;}
     if(q.q&&text.indexOf(q.q.toLowerCase())<0)ok=false;
     if(q.min!=null&&price&&price<q.min)ok=false;
     if(q.max!=null&&price&&price>=q.max)ok=false;

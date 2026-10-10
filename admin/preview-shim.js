@@ -1,0 +1,2 @@
+/* Admin preview only: the preview runs in a sandboxed frame without storage, so give the site scripts a harmless stand-in. */
+(function(){try{window.localStorage.getItem('x')}catch(e){var m={},s={getItem:function(k){return k in m?m[k]:null},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}};try{Object.defineProperty(window,'localStorage',{value:s,configurable:true})}catch(e2){}}})();

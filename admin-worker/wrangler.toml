@@ -1,0 +1,16 @@
+# LH Cars admin sign-in Worker. Deploy with:  npx wrangler deploy   (see SETUP.md)
+name = "lh-cars-admin"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+workers_dev = true
+
+# Keep request logs off so nothing about sign-ins is stored.
+[observability]
+enabled = false
+
+[vars]
+ALLOWED_LOGIN = "Skywalking-Luke"
+ALLOWED_ORIGIN = "https://lhcars.my"
+ADMIN_URL = "https://lhcars.my/admin/"
+
+# Secrets (never in this file):  npx wrangler secret put CLIENT_ID  and  npx wrangler secret put CLIENT_SECRET

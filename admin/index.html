@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="googlebot" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://api.github.com https://*.workers.dev; frame-src 'self'; child-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'">
+<meta name="theme-color" content="#14161e"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LH Admin"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="icon-180.png">
+<title>LH Cars · Admin</title>
+<link rel="icon" href="../assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Saira:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css"><link rel="stylesheet" href="admin.css">
+</head><body class="adm">
+<header class="hdr"><div class="wrap"><a class="logo" href="../index.html" target="_blank" rel="noopener"><img class="mark" src="../assets/img/logo.png" alt="LH Cars" width="28" height="36"><span>LH <em>Cars</em></span></a>
+<span class="adm-kick">Admin</span>
+<div class="adm-who" id="who" hidden><span id="whoTxt"></span><button class="btn btn-ghost btn-sm" type="button" id="signOut">Sign out</button></div></div></header>
+
+<main class="wrap adm-main">
+<!-- SIGN IN -->
+<section id="vSignin" class="adm-card adm-signin" hidden>
+<h1>Car uploads</h1>
+<p class="muted">This page is only for Luke. Sign in with the GitHub account that owns the website.</p>
+<button class="btn btn-red adm-big" type="button" id="signIn"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Sign in with GitHub</button>
+<p class="adm-msg" id="signMsg" role="status"></p>
+<p class="disc">You stay signed in for up to 8 hours on this tab only. Closing the tab or tapping Sign out ends it.</p>
+</section>
+
+<!-- APP -->
+<section id="vApp" hidden>
+<nav class="adm-tabs" role="tablist"><button type="button" class="on" data-tab="add" role="tab">＋ Add a car</button><button type="button" data-tab="manage" role="tab">Manage cars</button></nav>
+
+<div id="tAdd">
+<div class="adm-card" id="editBanner" hidden><b id="editTitle"></b> <button class="btn btn-ghost btn-sm" type="button" id="cancelEdit">Cancel edit</button></div>
+
+<div class="adm-card" id="pasteCard">
+<h2>1 · Paste the dealer's WhatsApp message</h2>
+<p class="muted">Copy the text from WhatsApp and paste it here. The form below fills itself in. Check every field before publishing.</p>
+<textarea id="paste" rows="7" placeholder="#5081 BMW M4 Coupe Competition&#10;Year - 2022&#10;Mileage - 32,000 KM&#10;Grade - 4.5B&#10;Asking price - RM428,000&#10;✅Carbon interior package"></textarea>
+<div class="adm-row"><button class="btn btn-red btn-sm" type="button" id="fillBtn">Fill the form</button><span class="adm-msg" id="fillMsg"></span></div>
+</div>
+
+<form class="adm-card adm-form" id="carForm" autocomplete="off" novalidate>
+<h2>2 · Car details</h2>
+<div class="adm-grid">
+<label>Stock number<input id="fRef" inputmode="numeric" placeholder="5081"><small>Without the #. Leave blank if the dealer has none.</small></label>
+<label>Make *<input id="fMake" list="makeList" required placeholder="BMW"></label>
+<label class="wide">Model / variant *<input id="fModel" required placeholder="M4 Coupe Competition"></label>
+<label>Year *<input id="fYear" inputmode="numeric" maxlength="4" required placeholder="2022"></label>
+<label>Mileage *<span class="adm-inline"><input id="fMileage" inputmode="numeric" required placeholder="32,000"><select id="fUnit" aria-label="Mileage unit"><option value="km">km</option><option value="mi">miles</option></select></span></label>
+<label>Exterior colour *<input id="fColour" list="colourList" required placeholder="White"></label>
+<label>Auction grade<input id="fGrade" placeholder="4.5B"><small>Optional. Leave blank to hide the row.</small></label>
+<label>Asking price (RM) *<input id="fPrice" inputmode="numeric" placeholder="428,000"></label>
+<label class="adm-check"><input type="checkbox" id="fPoa"><span>Enquire for price <small>(no price shown, buyers ask on WhatsApp)</small></span></label>
+<fieldset class="wide"><legend>Body type <small>(for the car finder filter)</small></legend><div class="adm-chips" id="fBody"></div></fieldset>
+<label class="wide">Features <small>(one per line, ✅ ticks are removed automatically)</small><textarea id="fFeats" rows="8" placeholder="Carbon interior package&#10;360 surround camera"></textarea></label>
+<label class="wide">Notes <small>(optional, shown as "About this car")</small><textarea id="fNotes" rows="3"></textarea></label>
+<label class="wide">Web address<span class="adm-inline"><span class="adm-pre">lhcars.my/cars/</span><input id="fSlug" placeholder="bmw-m4-coupe-competition-5081"></span><small id="slugHint">Made automatically from the make, model and stock number.</small></label>
+</div>
+<p class="adm-sold" id="soldNote" hidden><span class="tag" data-i18n="tag_sold">SOLD</span> This car is marked as sold. The price is hidden on the website.</p>
+
+<h2>3 · Photos</h2>
+<p class="muted">Pick as many as you like. The first photo is the main photo. Drag ⠿ or use ↑ ↓ to reorder. Tap <b>Blur</b> to hide number plates and other dealers' names or banners. Do not blur the windscreen stock-number tag.</p>
+<div class="adm-drop" id="drop" tabindex="0" role="button" aria-label="Add photos: choose files, or drop photos or a folder here">
+<b>＋ Add photos</b><span class="muted">Tap to choose from your photo library. On a computer, you can also drag photos or a whole folder here.</span>
+<span class="adm-row"><label class="btn btn-red btn-sm" for="fFiles">Choose photos</label><label class="btn btn-ghost btn-sm adm-desk" for="fDir">Choose a folder</label></span>
+<input type="file" id="fFiles" accept="image/*" multiple hidden><input type="file" id="fDir" webkitdirectory multiple hidden></div>
+<p class="adm-msg" id="photoMsg" role="status"></p>
+<ol class="adm-photos" id="photos"></ol>
+
+<div class="adm-actions"><button class="btn btn-ghost" type="button" id="previewBtn">👁 Preview</button><button class="btn btn-red" type="button" id="publishBtn">Publish</button></div>
+<p class="adm-msg" id="formMsg" role="status"></p>
+</form>
+</div>
+
+<div id="tManage" hidden>
+<div class="adm-card"><div class="adm-row"><input id="mSearch" type="search" placeholder="Search by name or stock number"><button class="btn btn-ghost btn-sm" type="button" id="mReload">↻ Refresh</button></div>
+<p class="muted" style="margin:8px 0 0">The 1964 MG Midget uses an older layout and is not managed here.</p></div>
+<ul class="adm-list" id="mList"></ul>
+</div>
+</section>
+</main>
+
+<!-- dialogs -->
+<div class="adm-modal" id="dlg" hidden><div class="adm-dlg" role="dialog" aria-modal="true"><div id="dlgBody"></div><div class="adm-row adm-end" id="dlgBtns"></div></div></div>
+<div class="adm-modal adm-full" id="blurDlg" hidden><div class="adm-dlg adm-blur" role="dialog" aria-modal="true" aria-label="Blur tool">
+<p class="muted"><b>Blur tool.</b> Drag boxes over number plates and other dealers' names or banners. Keep the windscreen stock-number tag visible.</p>
+<div class="adm-canvas"><canvas id="blurCv"></canvas></div>
+<div class="adm-row adm-end"><button class="btn btn-ghost btn-sm" type="button" id="blurUndo">Undo box</button><button class="btn btn-ghost btn-sm" type="button" id="blurCancel">Cancel</button><button class="btn btn-red btn-sm" type="button" id="blurApply">Apply blur</button></div></div></div>
+<div class="adm-modal adm-full" id="pvDlg" hidden><div class="adm-dlg adm-pv"><div class="adm-row adm-end"><span class="muted" style="margin-right:auto">Preview. Not published yet.</span><button class="btn btn-ghost btn-sm" type="button" id="pvClose">Close preview</button></div><iframe id="pvFrame" title="Preview" sandbox="allow-scripts"></iframe></div></div>
+<div class="adm-modal" id="busy" hidden><div class="adm-dlg"><h3 id="busyT">Publishing…</h3><div class="adm-bar"><i id="busyBar"></i></div><p class="muted" id="busyM"></p></div></div>
+
+<datalist id="makeList"></datalist><datalist id="colourList"></datalist>
+<script src="known.js"></script><script src="lhgen.js"></script><script src="admin.js"></script>
+</body></html>

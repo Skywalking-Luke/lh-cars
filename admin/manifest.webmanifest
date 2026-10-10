@@ -1,0 +1,16 @@
+{
+  "name": "LH Cars Admin",
+  "short_name": "LH Admin",
+  "description": "Add and manage LH Cars listings",
+  "id": "/admin/",
+  "start_url": "/admin/",
+  "scope": "/admin/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#14161e",
+  "theme_color": "#14161e",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
